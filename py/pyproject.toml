@@ -1,13 +1,12 @@
 [tool.poetry]
-name = "cidemo"
+name = "cidemo_py"
 version = "0.1.0"
 description = ""
 authors = ["Elia Perantoni <perantonielia0@gmail.com>"]
-readme = "README.md"
+include = ["lib/*"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"

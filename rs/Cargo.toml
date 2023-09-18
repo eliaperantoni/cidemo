@@ -1,8 +1,16 @@
 [package]
-name = "cidemo"
+name = "cidemo_rs"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[lib]
+name = "cidemo_rs"
+crate-type = ["cdylib"]
+
 [dependencies]
+pyo3 = { version = "0.19.2", features = ["extension-module"] }
+
+[build-dependencies]
+pyo3-build-config = "0.19.2"
