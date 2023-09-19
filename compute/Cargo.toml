@@ -1,12 +1,12 @@
 [package]
-name = "cidemo_rs"
+name = "compute"
 version = "0.1.0"
 edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [lib]
-name = "cidemo_rs"
+name = "compute"
 crate-type = ["cdylib"]
 
 [dependencies]

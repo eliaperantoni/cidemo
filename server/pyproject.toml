@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "cidemo_py"
+name = "server"
 version = "0.1.0"
 description = ""
 authors = ["Elia Perantoni <perantonielia0@gmail.com>"]
@@ -7,6 +7,7 @@ include = ["lib/*"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+flask = "^2.3.3"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.4.2"

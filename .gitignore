@@ -1,6 +1,10 @@
+.vscode/
+.DS_Store
+
 __pycache__/
 .pytest*/
-target/
-dist/
-.DS_Store
-py/lib/*.so
+
+compute/target/
+
+server/lib/*.so
+server/dist/

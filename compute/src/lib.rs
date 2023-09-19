@@ -25,10 +25,9 @@ fn py_fib(n: i32) -> PyResult<i32> {
     Ok(fib(n))
 }
 
-/// Module containing utility functions written in Rust.
+/// Module containing high-performance utility functions written in Rust.
 #[pymodule]
-#[pyo3(name="cidemo_rs")]
-fn py_module(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
+fn compute(_py: Python<'_>, m: &PyModule) -> PyResult<()> {
     m.add_function(wrap_pyfunction!(py_fib, m)?)?;
     Ok(())
 }
