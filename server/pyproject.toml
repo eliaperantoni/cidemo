@@ -9,9 +9,6 @@ include = ["lib/*"]
 python = "^3.11"
 flask = "^2.3.3"
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.4.2"
-
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"

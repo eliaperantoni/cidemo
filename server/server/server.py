@@ -1,4 +1,4 @@
-from server.fib import fib
+from lib.compute import fib
 from flask import Flask
 
 app = Flask("Fibonacci app", static_url_path="", static_folder="lib/frontend")

@@ -13,6 +13,8 @@ compute_install: compute_dist
 
 frontend_setup:
     cd frontend && bun install
+frontend_test: frontend_setup
+    cd frontend && bun test
 frontend_dist: frontend_setup
     cd frontend && bun build --minify --outfile=dist/bundle.js src/index.tsx
 frontend_dev: frontend_setup

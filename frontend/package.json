@@ -1,10 +1,8 @@
 {
   "name": "frontend",
-  "module": "src/index.tsx",
+  "module": "index.tsx",
   "type": "module",
   "devDependencies": {
-    "@happy-dom/global-registrator": "^12.1.2",
-    "@testing-library/react": "^14.0.0",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "bun-types": "latest"

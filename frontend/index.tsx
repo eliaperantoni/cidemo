@@ -1,3 +1,7 @@
+/// <reference lib="dom" />
+/// <reference lib="dom.iterable" />
+
+import { createRoot } from "react-dom/client";
 import { useState } from "react";
 
 async function compute(n: number): Promise<number> {
@@ -19,4 +23,5 @@ function App() {
     </>;
 }
 
-export default App;
+const root = createRoot(document.getElementById("app")!);
+root.render(<App/>);
