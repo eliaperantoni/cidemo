@@ -17,5 +17,9 @@ install_frontend:
 
 run:
     cd server && poetry run python -m server
+test:
+    cd server && just run &
+    -cd test && URL="http://localhost:8080" bun test
+    kill `lsof -t -i tcp:8080`
 make_wheel:
     cd server && poetry build -f wheel
