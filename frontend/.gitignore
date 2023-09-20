@@ -171,4 +171,4 @@ dist
 # IntelliJ based IDEs
 .idea
 
-dist/bundle.js
+dist/
