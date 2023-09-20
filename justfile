@@ -15,5 +15,7 @@ install_frontend:
     rm -rf server/lib/frontend
     cp -r frontend/dist server/lib/frontend
 
+run:
+    cd server && poetry run python -m server
 make_wheel:
     cd server && poetry build -f wheel
