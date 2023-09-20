@@ -1,8 +1,4 @@
-/// <reference lib="dom" />
-/// <reference lib="dom.iterable" />
-
 import { useState } from "react";
-import { createRoot } from "react-dom/client";
 
 async function compute(n: number): Promise<number> {
     const response = await fetch(`/fib/${n}`, {method: "POST"});
@@ -23,5 +19,4 @@ function App() {
     </>;
 }
 
-const root = createRoot(document.getElementById("app")!);
-root.render(<App/>);
+export default App;

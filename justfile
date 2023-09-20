@@ -14,9 +14,9 @@ compute_install: compute_dist
 frontend_setup:
     cd frontend && bun install
 frontend_dist: frontend_setup
-    cd frontend && bun build --minify --outfile=dist/bundle.js index.tsx
+    cd frontend && bun build --minify --outfile=dist/bundle.js src/index.tsx
 frontend_dev: frontend_setup
-    (cd frontend && bun build --watch --outfile=dist/bundle.js index.tsx) & python3 -m http.server 8081 -d frontend/dist & open "http://localhost:8081"
+    (cd frontend && bun build --watch --outfile=dist/bundle.js src/index.tsx) & python3 -m http.server 8081 -d frontend/dist & open "http://localhost:8081"
 frontend_install: frontend_setup frontend_dist
     rm -rf server/lib/frontend
     cp -r frontend/dist server/lib/frontend
