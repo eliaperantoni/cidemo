@@ -1,0 +1,21 @@
+name: test copy
+run-name: ${{ github.actor }} is trying GitHub Actions
+on: [push]
+jobs:
+  build-compute:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo build
+        working-directory: compute/
+  build-frontend:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: |
+          bun install
+          bun build --minify --outfile=dist/bundle.js index.tsx
+          cp public/* dist/
+        working-directory: frontend/
