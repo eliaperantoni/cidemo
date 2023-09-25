@@ -10,10 +10,11 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
       - run: cargo build
         working-directory: compute/
+      - mv compute/target/debug/libcompute.so compute/target/debug/compute.so
       - uses: actions/upload-artifact@v3
         with:
           name: compute.so
-          path: compute/target/debug/libcompute.so
+          path: compute/target/debug/compute.so
   build-frontend:
     name: Build frontend
     runs-on: ubuntu-latest
@@ -46,7 +47,6 @@ jobs:
         with:
           name: compute.so
           path: server/lib
-      - run: sudo apt-get update && sudo apt-get install -y tree && tree server/lib
       - uses: snok/install-poetry@v1
       - run: |
           poetry install
