@@ -3,7 +3,7 @@ name = "server"
 version = "0.1.0"
 description = ""
 authors = ["Elia Perantoni <perantonielia0@gmail.com>"]
-include = ["lib/compute.so", "lib/frontend/**/*"]
+include = ["lib/__init__.py", "lib/compute.so", "lib/frontend/**/*"]
 
 [tool.poetry.dependencies]
 python = "^3.11"
