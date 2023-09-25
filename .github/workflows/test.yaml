@@ -8,12 +8,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
-      - run: cargo build && sudo apt-get update && sudo apt-get install -y tree && tree
+      - run: cargo build
         working-directory: compute/
       - uses: actions/upload-artifact@v3
         with:
           name: compute.so
-          path: compute/target/debug/libcompute.dylib
+          path: compute/target/debug/libcompute.so
   build-frontend:
     name: Build frontend
     runs-on: ubuntu-latest
@@ -29,3 +29,25 @@ jobs:
         with:
           name: dist
           path: frontend/dist
+  build-server:
+    name: Build server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: server/lib/frontend
+      - uses: actions/download-artifact@v3
+        with:
+          name: compute.so
+          path: server/lib
+      - uses: snok/install-poetry@v1
+      - run: |
+          poetry install
+          poetry build -f wheel
+        working-directory: server
+      - uses: actions/upload-artifact@v3
+        with:
+          name: server
+          path: server/dist/*.whl
