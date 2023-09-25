@@ -46,7 +46,7 @@ jobs:
         with:
           name: compute.so
           path: server/lib/compute
-      - run: sudo apt-get update && apt-get install -y tree && tree server/lib
+      - run: sudo apt-get update && sudo apt-get install -y tree && tree server/lib
       - uses: snok/install-poetry@v1
       - run: |
           poetry install
