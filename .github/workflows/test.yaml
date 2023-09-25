@@ -31,6 +31,7 @@ jobs:
           path: frontend/dist
   build-server:
     name: Build server
+    needs: [build-compute, build-frontend]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
