@@ -3,6 +3,7 @@ run-name: ${{ github.actor }} is trying GitHub Actions
 on: [push]
 jobs:
   build-compute:
+    name: Build compute
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -10,6 +11,7 @@ jobs:
       - run: cargo build
         working-directory: compute/
   build-frontend:
+    name: Build frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
