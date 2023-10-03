@@ -34,7 +34,9 @@ jobs:
     name: Build server
     needs: [build-compute, build-frontend]
     runs-on: ubuntu-latest
-    environment: production
+    environment:
+      name: production
+      url: https://example.com
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v4
