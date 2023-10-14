@@ -11,9 +11,10 @@ jobs:
           working_directory: compute/
       - run:
           command: mv compute/target/debug/libcompute.so compute/target/debug/compute.so
+      - store_artifacts:
+          path: compute/target/debug/compute.so
+          destination: compute
 
-# Orchestrate jobs using workflows
-# See: https://circleci.com/docs/configuration-reference/#workflows
 workflows:
   my_workflow:
     jobs:
