@@ -1,21 +1,25 @@
 version: 2.1
 
 jobs:
-  build_compute:
+  job_1:
     docker:
-      - image: rust
+      - image: ubuntu
     steps:
-      - checkout
-      - run:
-          command: cargo build
-          working_directory: compute/
-      - run:
-          command: mv compute/target/debug/libcompute.so compute/target/debug/compute.so
-      - store_artifacts:
-          path: compute/target/debug/compute.so
-          destination: compute
+      - run: echo 1
+  job_2:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: echo 2
+  job_3:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: echo 3
 
 workflows:
   my_workflow:
     jobs:
-      - build_compute
+      - job_1
+      - job_2
+      - job_3
