@@ -6,11 +6,18 @@ jobs:
       - image: ubuntu
     steps:
       - run: echo Hello World > test.txt
+      - persist_to_workspace:
+          root: .
+          paths:
+            - test.txt
   job_2:
     docker:
       - image: ubuntu
     steps:
-      - run: cat test.txt
+      - attach_workspace:
+          at: ./workspace
+      - run: ls workspace
+      - run: cat workspace/test.txt
 
 workflows:
   my_workflow:
