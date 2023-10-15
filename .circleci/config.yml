@@ -5,17 +5,17 @@ jobs:
     docker:
       - image: ubuntu
     steps:
-      - run: echo 1
+      - run: sleep 10 && echo 1
   job_2:
     docker:
       - image: ubuntu
     steps:
-      - run: echo 2
+      - run: sleep 10 && echo 2
   job_3:
     docker:
       - image: ubuntu
     steps:
-      - run: echo 3
+      - run: sleep 10 && echo 3
 
 workflows:
   my_workflow:
