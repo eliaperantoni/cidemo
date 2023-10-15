@@ -1,28 +1,15 @@
 version: 2.1
 
 jobs:
-  job_1:
+  my_job:
     docker:
       - image: ubuntu
     steps:
-      - run: sleep 10 && echo 1
-  job_2:
-    docker:
-      - image: ubuntu
-    steps:
-      - run: sleep 10 && echo 2
-  job_3:
-    docker:
-      - image: ubuntu
-    steps:
-      - run: sleep 10 && echo 3
+      - run: echo $MY_ENV_VAR
 
 workflows:
   my_workflow:
     jobs:
-      - job_1
-      - job_2:
-          requires: ["job_1"]
-          type: approval
-      - job_3:
-          requires: ["job_2"]
+      - my_job:
+          context:
+            - my-context
