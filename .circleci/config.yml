@@ -1,15 +1,21 @@
 version: 2.1
 
 jobs:
-  my_job:
+  job_1:
     docker:
       - image: ubuntu
     steps:
-      - run: echo $MY_ENV_VAR
+      - run: echo Hello World > test.txt
+  job_2:
+    docker:
+      - image: ubuntu
+    steps:
+      - run: cat test.txt
 
 workflows:
   my_workflow:
     jobs:
-      - my_job:
-          context:
-            - my-context
+      - job_1
+      - job_2
+          requires:
+            - job_1
