@@ -23,5 +23,6 @@ workflows:
       - job_1
       - job_2:
           requires: ["job_1"]
+          type: approval
       - job_3:
           requires: ["job_2"]
