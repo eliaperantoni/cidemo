@@ -1,28 +1,16 @@
 version: 2.1
 
 jobs:
-  job_1:
+  my_job:
     docker:
       - image: ubuntu
     steps:
       - run: echo Hello World > test.txt
-      - persist_to_workspace:
-          root: .
-          paths:
-            - test.txt
-  job_2:
-    docker:
-      - image: ubuntu
-    steps:
-      - attach_workspace:
-          at: ./workspace
-      - run: ls workspace
-      - run: cat workspace/test.txt
+      - store_artifacts:
+          path: test.txt
+          destination: test
 
 workflows:
   my_workflow:
     jobs:
-      - job_1
-      - job_2:
-          requires:
-            - job_1
+      - my_job
