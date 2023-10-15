@@ -11,11 +11,15 @@ jobs:
       - image: ubuntu
     steps:
       - run: sleep 10 && echo 2
+    requires:
+      - job_1
   job_3:
     docker:
       - image: ubuntu
     steps:
       - run: sleep 10 && echo 3
+    requires:
+      - job_2
 
 workflows:
   my_workflow:
